@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.pulse-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: pulse-draw 2.2s ease-out forwards;
+}
+@keyframes pulse-draw {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-path { animation: none; stroke-dashoffset: 0; }
+}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-brand-body antialiased;
+    
+  }
+
+  * {
+    @apply border-ink-200;
+  }
+}
+.ecg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0, 17, 44, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 17, 44, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
